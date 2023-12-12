@@ -56,5 +56,6 @@ public class PlayerController : MonoBehaviour
     private void removeTarget()
     {
         target = null;
+        playerMovement.stopFollow();
     }
 }

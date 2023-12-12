@@ -30,10 +30,12 @@ public class PlayerMovement : MonoBehaviour
     public void followTarget(Interactable newTarget)
     {
         target = newTarget.transform;
+        navMeshAgent.stoppingDistance = newTarget.radius;
     }
 
     public void stopFollow()
     {
         target = null;
+        navMeshAgent.stoppingDistance = 0f;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    [SerializeField] private float radius;
+    public float radius;
 
     // Start is called before the first frame update
     void Start()
