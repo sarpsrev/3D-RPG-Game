@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Camera cam;
+
+    [Header("Other Scripts")]
     PlayerMovement playerMovement;
     // Start is called before the first frame update
     void Start()
