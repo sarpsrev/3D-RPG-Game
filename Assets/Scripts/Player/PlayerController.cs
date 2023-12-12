@@ -7,8 +7,13 @@ public class PlayerController : MonoBehaviour
 {
     Camera cam;
 
+    [Header("Interacatable")]
+    public Interactable target;
+
     [Header("Other Scripts")]
     PlayerMovement playerMovement;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +32,29 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(ray, out raycastHit))
             {
                 playerMovement.playerMove(raycastHit.point);
+
+                Interactable ınteractable = raycastHit.collider.GetComponent<Interactable>();
+
+                if(ınteractable != null)
+                {
+                    SetTarget(ınteractable);
+                }
+                else
+                {
+                    removeTarget();
+                }
             }
         }
+    }
+
+    public void SetTarget(Interactable newTarget)
+    {
+        target = newTarget;
+        playerMovement.followTarget(newTarget);
+    }
+
+    private void removeTarget()
+    {
+        target = null;
     }
 }
