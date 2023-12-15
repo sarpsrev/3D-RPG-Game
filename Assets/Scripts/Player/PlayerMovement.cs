@@ -7,10 +7,13 @@ public class PlayerMovement : MonoBehaviour
 {
     NavMeshAgent navMeshAgent;
     Transform target;
+
+    Animator animator;
     
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -19,8 +22,9 @@ public class PlayerMovement : MonoBehaviour
         if(target != null)
         {
             navMeshAgent.SetDestination(target.position);
-            faceTarget();
+            faceTarget();  
         }
+        moveAnimation();
     }
 
     public void playerMove(Vector3 point)
@@ -47,5 +51,14 @@ public class PlayerMovement : MonoBehaviour
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x,0f,direction.z));
         transform.rotation=Quaternion.Slerp(transform.rotation,lookRotation,Time.deltaTime * 5f);
+    }
+
+    public void moveAnimation()
+    {
+        Vector3 velocity =  GetComponent<NavMeshAgent>().velocity;
+        Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+        float speed = localVelocity.z;
+
+        animator.SetFloat("forwardSpeed",speed);
     }
 }
