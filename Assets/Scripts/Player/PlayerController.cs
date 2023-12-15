@@ -49,14 +49,26 @@ public class PlayerController : MonoBehaviour
 
     public void SetTarget(Interactable newTarget)
     {
-        target = newTarget;
-        playerMovement.followTarget(newTarget);
+        if(newTarget != target)
+        {
+            if (target != null)
+            {
+                target.noTarget();
+            }
+            target = newTarget;
+            playerMovement.followTarget(newTarget);
+        }
         newTarget.onTarget(transform);
     }
 
     private void removeTarget()
     {
+        if (target != null)
+        {
+            target.noTarget();
+        }
         target = null;
         playerMovement.stopFollow();
+        
     }
 }

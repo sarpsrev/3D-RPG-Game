@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    [Header("Enemy && Player")]
+
     public float radius;
     bool isTarget = false;
+    bool hasInteracrted = false;
     Transform player;
 
     // Start is called before the first frame update
@@ -20,9 +23,10 @@ public class Interactable : MonoBehaviour
         if (isTarget)
         {
             float distance = Vector3.Distance(player.transform.position,transform.position);
-            if (distance<=radius)
+            if (distance<=radius && !hasInteracrted)
             {
                 Debug.Log("interaction enabled");
+                hasInteracrted=true;
             }
         }
         
@@ -32,13 +36,16 @@ public class Interactable : MonoBehaviour
     {
         isTarget=true;
         player=playerTransform;
+        hasInteracrted=false;
     }
 
     public void noTarget()
     {
         isTarget=false;
         player=null; 
+        hasInteracrted=false;
     }
+    
     private void OnDrawGizmosSelected() {
        Gizmos.color = Color.red;
        Gizmos.DrawSphere(transform.position,radius);
