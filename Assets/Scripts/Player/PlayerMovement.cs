@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
         if(target != null)
         {
             navMeshAgent.SetDestination(target.position);
+            faceTarget();
         }
     }
 
@@ -31,11 +32,18 @@ public class PlayerMovement : MonoBehaviour
     {
         target = newTarget.transform;
         navMeshAgent.stoppingDistance = newTarget.radius;
+        navMeshAgent.updateRotation=false;
     }
 
     public void stopFollow()
     {
         target = null;
         navMeshAgent.stoppingDistance = 0f;
+        navMeshAgent.updateRotation=true;
+    }
+
+    public void faceTarget()
+    {
+        
     }
 }

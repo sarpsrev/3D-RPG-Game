@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
     {
         target = newTarget;
         playerMovement.followTarget(newTarget);
+        newTarget.onTarget(transform);
     }
 
     private void removeTarget()
