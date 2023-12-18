@@ -13,6 +13,7 @@ public class Item : Interactable
     public void pickUp()
     {
         Inventory.Instance.addItem(itemData);
+        Destroy(gameObject,0.5f);
         
     }
 }
