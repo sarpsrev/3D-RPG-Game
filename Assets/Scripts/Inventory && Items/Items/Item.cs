@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Item : Interactable
 {
+    public ItemData itemData;
     public override void Interact()
     {
         pickUp();
@@ -11,6 +12,7 @@ public class Item : Interactable
 
     public void pickUp()
     {
-        Destroy(gameObject);
+        Inventory.Instance.addItem(itemData);
+        
     }
 }
