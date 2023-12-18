@@ -9,7 +9,7 @@ public class CharacterStats : MonoBehaviour
     public Stat strength;
 
     private float currentHealth;
-    void Start()
+    public virtual void Start()
     {
         currentHealth = maxHealth.getValue();
     }
@@ -32,6 +32,6 @@ public class CharacterStats : MonoBehaviour
 
     public virtual void Die()
     {
-        Destroy(gameObject);
+        Destroy(gameObject,2f);
     }
 }

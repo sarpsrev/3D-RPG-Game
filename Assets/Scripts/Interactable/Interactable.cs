@@ -11,11 +11,6 @@ public class Interactable : MonoBehaviour
     bool hasInteracrted = false;
     public Transform player;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -26,10 +21,16 @@ public class Interactable : MonoBehaviour
             if (distance<=radius && !hasInteracrted)
             {
                 Debug.Log("interaction enabled");
+                Interact();
                 hasInteracrted=true;
             }
         }
         
+    }
+
+    public virtual void Interact()
+    {
+
     }
 
     public void onTarget(Transform playerTransform)
@@ -50,4 +51,5 @@ public class Interactable : MonoBehaviour
        Gizmos.color = Color.red;
        Gizmos.DrawSphere(transform.position,radius);
     }
+
 }
