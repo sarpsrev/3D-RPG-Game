@@ -9,7 +9,7 @@ public class Interactable : MonoBehaviour
     public float radius;
     bool isTarget = false;
     bool hasInteracrted = false;
-    Transform player;
+    public Transform player;
 
     // Start is called before the first frame update
     void Start()
