@@ -27,7 +27,7 @@ public class Interactable : MonoBehaviour
         }
         
     }
-
+    // All Interacts can ovrride with this function
     public virtual void Interact()
     {
 
