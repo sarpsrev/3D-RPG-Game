@@ -11,7 +11,7 @@ public class CharacterStats : MonoBehaviour
     private float currentHealth;
     void Start()
     {
-        
+        currentHealth = maxHealth.getValue();
     }
 
     // Update is called once per frame
@@ -20,7 +20,7 @@ public class CharacterStats : MonoBehaviour
         
     }
 
-    public void takeDamage(float damage)
+    public virtual void takeDamage(float damage)
     {
         currentHealth -= damage;
 
@@ -30,7 +30,7 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
-    public void Die()
+    public virtual void Die()
     {
         Destroy(gameObject);
     }
