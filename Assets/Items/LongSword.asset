@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14f8187c6d5b4d939113f7e9ea76d51, type: 3}
   m_Name: LongSword
   m_EditorClassIdentifier: 
-  "\u0131temName": 
-  ItemIcon: {fileID: 0}
+  "\u0131temName": LongSword
+  ItemIcon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}

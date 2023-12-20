@@ -12,6 +12,7 @@ public class InventoryItem
     public InventoryItem(ItemData newData)
     {
         data = newData;
+        addStack();
     }
 
     public void addStack()
